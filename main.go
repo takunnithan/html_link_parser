@@ -2,7 +2,7 @@ package html_link_parser
 
 import (
 	"fmt"
-	"os"
+	"io"
 	"strings"
 
 	"golang.org/x/net/html"
@@ -12,14 +12,15 @@ type Link struct {
 	Href, Text string
 }
 
-func GetLinks() []Link {
+func GetLinks(htmlSource io.Reader) []Link {
 	fmt.Println("HTML link parser!")
-	file_ptr, err := os.Open("E:\\Go\\go projects\\html_link_parser\\ex2.html")
-	if err != nil {
-		panic(err)
-	}
+	// file_ptr, err := os.Open("E:\\Go\\go projects\\html_link_parser\\ex2.html")
+	// if err != nil {
+	// 	panic(err)
+	// }
+
 	var links []Link
-	html_tokenizer := html.NewTokenizer(file_ptr)
+	html_tokenizer := html.NewTokenizer(htmlSource)
 	for {
 		tt := html_tokenizer.Next()
 		token := html_tokenizer.Token()
