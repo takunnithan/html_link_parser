@@ -1,7 +1,6 @@
-package main
+package html_link_parser
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"strings"
@@ -13,7 +12,7 @@ type Link struct {
 	Href, Text string
 }
 
-func main() {
+func GetLinks() []Link {
 	fmt.Println("HTML link parser!")
 	file_ptr, err := os.Open("E:\\Go\\go projects\\html_link_parser\\ex2.html")
 	if err != nil {
@@ -41,11 +40,12 @@ func main() {
 			links = append(links, link)
 		}
 	}
-	val, err := json.Marshal(links)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(string(val))
+	return links
+	// val, err := json.Marshal(links)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Println(string(val))
 }
 
 func getLinkTexts(html_tokenizer *html.Tokenizer) string {
