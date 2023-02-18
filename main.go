@@ -12,7 +12,7 @@ type Link struct {
 	Href, Text string
 }
 
-func GetLinks(htmlSource io.Reader) []Link {
+func GetLinks(htmlSource io.ReadCloser) []Link {
 	fmt.Println("HTML link parser!")
 	// file_ptr, err := os.Open("E:\\Go\\go projects\\html_link_parser\\ex2.html")
 	// if err != nil {
