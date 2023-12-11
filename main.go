@@ -1,7 +1,6 @@
 package html_link_parser
 
 import (
-	"fmt"
 	"io"
 	"strings"
 
@@ -13,7 +12,7 @@ type Link struct {
 }
 
 func GetLinks(htmlSource io.ReadCloser) []Link {
-	fmt.Println("HTML link parser!")
+	// fmt.Println("HTML link parser!")
 	// file_ptr, err := os.Open("E:\\Go\\go projects\\html_link_parser\\ex2.html")
 	// if err != nil {
 	// 	panic(err)
